@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
@@ -11,7 +11,7 @@ import Billing from "./pages/Billing";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Login />} />
@@ -69,7 +69,7 @@ function App() {
   }
 />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
