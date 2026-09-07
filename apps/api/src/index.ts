@@ -48,8 +48,13 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`
+// Only bind to a port when running as a normal long-lived Node process
+// (local dev, or a traditional server). On Vercel, the platform itself
+// invokes the exported `app` handler per-request, so listen() must be
+// skipped there to avoid unnecessary/incorrect port binding.
+if (!process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`
 ╔════════════════════════════════════════════════════════════╗
 ║                                                            ║
 ║   🚀 FinTrack API Server                                   ║
@@ -59,7 +64,8 @@ app.listen(port, () => {
 ║   Health:    http://localhost:${port}/health                  ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
-  `);
-});
+    `);
+  });
+}
 
 export default app;
