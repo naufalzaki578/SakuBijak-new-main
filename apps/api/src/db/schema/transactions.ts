@@ -8,8 +8,8 @@ import {
   pgEnum,
   index,
 } from "drizzle-orm/pg-core";
-import { user } from "./auth";
-import { categories } from "./categories";
+import { user } from "./auth.js";
+import { categories } from "./categories.js";
 
 export const transactionTypeEnum = pgEnum("transaction_type", [
   "income",

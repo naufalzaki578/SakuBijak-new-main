@@ -1,7 +1,7 @@
 // Auth tables
-export * from "./auth";
+export * from "./auth.js";
 
 // Application tables
-export * from "./categories";
-export * from "./transactions";
-export * from "./attachments";
+export * from "./categories.js";
+export * from "./transactions.js";
+export * from "./attachments.js";
